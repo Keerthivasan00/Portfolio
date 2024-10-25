@@ -2,6 +2,7 @@ import React from "react";
 import { CiMenuBurger } from "react-icons/ci";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { RiCloseLargeFill } from "react-icons/ri";
 
 function Navbar() {
   const [isVisible, setIsVisible] = useState(false);
@@ -20,7 +21,13 @@ function Navbar() {
             Portfolio
           </div>
           <div
-            className={`w-full h-full flex justify-end items-center gap-14 text-white ${isVisible ? "translate-y-0 animate-fade-in-left": "-translate-y-28 animate-fade-out"}`} style={{fontFamily:"DynaPuff"}}>
+            className={`w-full h-full flex justify-end items-center gap-14 text-white ${
+              isVisible
+                ? "translate-y-0 animate-fade-in-left"
+                : "-translate-y-28 animate-fade-out"
+            }`}
+            style={{ fontFamily: "DynaPuff" }}
+          >
             <Link to="/home">Home</Link>
             <Link to="/About">About</Link>
             <Link to="/Skills">Skill</Link>
@@ -29,7 +36,11 @@ function Navbar() {
           </div>
           <div className=" w-24 h-ful flex justify-center">
             <button className="text-white " onClick={() => toggleVisibility()}>
-              <CiMenuBurger className="lg:w-8 lg:h-8 w-6 h-6" />
+              {isVisible ? (
+                 <RiCloseLargeFill className="lg:w-8 lg:h-8 w-6 h-6"  />
+              ) : (
+                <CiMenuBurger className="lg:w-8 lg:h-8 w-6 h-6"/>
+              )}
             </button>
           </div>
         </div>
