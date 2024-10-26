@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import header from "../assets/header.jpg";
 import Navbar from "./Navbar";
 import Sidenavbar from "./Sidenavbar";
+import Landing from "./Landing";
 
 function Home() {
   const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 1020);
@@ -20,6 +21,7 @@ function Home() {
       style={{ backgroundImage: `url(${header})` }}
     >
       {isLargeScreen ? <Navbar /> : <Sidenavbar />}
+      <Landing/>
     </div>
     
     </>
