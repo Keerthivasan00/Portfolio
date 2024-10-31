@@ -3,6 +3,14 @@ module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
     extend: {
+      height: {
+        '93.5': '93.222%',
+        '90': '90.777%',
+        '25':'52.455rem',
+        '26':'36.677rem',
+        '20.1':'20.677rem',
+        '98':'23.666rem',
+      },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-out forwards',
         'fade-out': 'fadeOut 0.5s ease-out forwards',
