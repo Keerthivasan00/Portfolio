@@ -22,6 +22,7 @@ function About() {
             />
           </div>
           <div className="w-full h-98 lg:h-full lg:flex lg:flex-col lg:justify-center">
+            <div className="text-sm flex justify-center lg:p-1 lg:text-2xl text-purple-600 font-extrabold" style={{ fontFamily: "Itim" }}>Who I am?</div>
             <div className="text-sm flex justify-center lg:p-4 lg:text-2xl" style={{ fontFamily: "Itim" }}>
               Hai I am Keerthivasan,
             </div>
