@@ -22,7 +22,7 @@ function Sidenavbar() {
 
   return (
     <>
-      <div className="w-full h-20 flex pt-6">
+      <div className="w-full h-20 flex pt-6 ">
         <div
           className={`${loca ? 'text-purple-400 bg-white':' text-white '}lg:text-5xl text-3xl font-extrabold pl-2 lg:w-1/5 w-2/5 h-full flex items-center`}
           style={{ fontFamily: "DynaPuff" }}

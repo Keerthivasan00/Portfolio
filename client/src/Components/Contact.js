@@ -27,18 +27,18 @@ function Contact() {
 
     emailjs
       .send(
-        "service_uws9br8", // Replace with your Service ID
-        "template_ardpawd", // Replace with your Template ID
+        "service_uws9br8", 
+        "template_ardpawd",
         {
           to_name: formData.to_name,
           from_name: formData.from_name,
           message: formData.message,
         },
-        "lw6hH4v4WLmoPH4Xh" // Replace with your User ID
+        "lw6hH4v4WLmoPH4Xh"
       )
       .then((response) => {
         alert("Message sent successfully!");
-        setFormData({ to_name: "", from_name: "", message: "" });
+        setFormData({ name: "", from_name: "", message: "" });
       })
       .catch((error) => {
         alert("An error occurred. Please try again.");
@@ -115,7 +115,7 @@ function Contact() {
                   <input
                     type="email"
                     name="from_name"
-                    value={formData.email}
+                    value={formData.from_name}
                     onChange={handleChange}
                     className="w-full px-4 py-1 lg:py-3 border rounded-md"
                     required

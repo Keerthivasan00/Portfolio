@@ -10,6 +10,7 @@ module.exports = {
         '26':'36.677rem',
         '20.1':'20.677rem',
         '98':'23.666rem',
+        '99':'25rem'
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-out forwards',
