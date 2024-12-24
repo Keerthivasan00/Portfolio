@@ -8,13 +8,31 @@ import java from "../assets/skills icon/java.png";
 import mysql from "../assets/skills icon/mysql.png";
 import css from "../assets/skills icon/css.png";
 import js from "../assets/skills icon/js.png";
+import { useLocation } from 'react-router-dom';
+import { useEffect,useState } from "react";
 
 function Skills() {
+  const location = useLocation();
+  const [isPname, setIsPname] = useState(false);
+
+  useEffect(() => {
+    
+    if (location.pathname !== '/') {
+      setIsPname(true);
+      // console.log(isPname) 
+    } else {
+      setIsPname(false);
+      // console.log(isPname)
+    }
+  }, [location]); 
   return (
     <>
-      <Navbar />
-      <div className="w-full  xl:h-25 h-26 flex items-center bg-purple-100 ">
+      {isPname && <Navbar />}
+      <div className="w-full  xl:h-25 h-26 flex items-center " id="Skills">
+        <div></div>
+        <div></div>
         <div className="w-full h-4/5 border-2 border-purple-200 flex flex-wrap lg:gap-x-20 gap-x-9 items-center justify-center ">
+        
           <div className="lg:w-80 lg:h-48 w-36 h-28  border-2 border-purple-400 hover:animate-pulse flex justify-center items-center ">
             <img src={c} alt="" className="lg:w-36 w-20 h-20 lg:h-36 " />
           </div>

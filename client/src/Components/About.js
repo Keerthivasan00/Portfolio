@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect,useState } from "react";
 import Navbar from "./Navbar";
 import photo from "../assets/profesional photo.jpg";
+import { useLocation } from 'react-router-dom';
+import Home from "./Home";
 
 function About() {
   const handleDownloadCV = () => {
@@ -9,10 +11,25 @@ function About() {
     link.download = "Keerthivasan_CV.pdf"; 
     link.click();
   };
+  const location = useLocation();
+  const [isPname, setIsPname] = useState(false);
+
+  useEffect(() => {
+    
+    if (location.pathname !== '/') {
+      setIsPname(true);
+      // console.log(isPname) 
+    } else {
+      setIsPname(false);
+      // console.log(isPname)
+    }
+  }, [location]); 
+
   return (
     <>
-      <Navbar />
-      <div className="w-full  xl:h-25 h-26 flex items-center">
+      {isPname && <Navbar />}
+      <div className={`${isPname ? 'w-full h-screen bg-green-400 ' :'w-full h-screen flex items-center' }`} id="About">
+      {/* <div className=""> */}
         <div className="h-full w-full lg:flex">
           <div className="w-full h-52 lg:w-5/12 lg:h-full flex justify-center items-center">
             <img

@@ -1,28 +1,52 @@
 import React, { useEffect, useState } from "react";
 import header from "../assets/header.jpg";
 import Navbar from "./Navbar";
-import Sidenavbar from "./Sidenavbar";
 import Landing from "./Landing";
+import About from "./About";
+import Skills from "./Skills";
+import Project from "./Project";
+import Contact from "./Contact";
 
 function Home() {
-  // const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 1020);
-
-  // useEffect(() => {
-  //   const handleResize = () => setIsLargeScreen(window.innerWidth >= 1020);
-
-  //   window.addEventListener("resize", handleResize);
-  //   return () => window.removeEventListener("resize", handleResize);
-  // }, []);
-
   return (
     <>
     <div
       className="w-full h-screen bg-cover bg-center"
       style={{ backgroundImage: `url(${header})` }}
     >
-      <div className="h-1/6 w-auto"><Navbar/></div>
-      <Landing/>
+      
+      {/* <Landing/>
+      <About/>
+      <Skills/>
+      <Project/>
+      <Contact/> */}
+      <section className="w-full h-screen" id="Home">
+        <Landing/>
+        </section>
+    
+        <section className="w-full h-screen " id="About">
+          <About />
+        </section>
+        <section className="w-full h-screen " id="Skill">
+          <Skills />
+        </section>
+        <section className="w-full h-screen " id="Project">
+          <Project />
+        </section>
+        <section className="w-full h-screen " id="Contact">
+          <Contact />
+        </section>
+    
     </div>
+     <div>
+     <div className="h-1/6 w-full fixed top-0"><Navbar/></div>
+     
+     </div> 
+       
+     
+     
+    
+    
     
     </>
     

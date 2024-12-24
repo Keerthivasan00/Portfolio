@@ -1,18 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import Navbar from "./Navbar";
-import { useState } from "react";
 import emailjs from "emailjs-com";
-import { FaFacebook } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { MdAddIcCall } from "react-icons/md";
 
 function Contact() {
+  const location = useLocation();
+  const [isPname, setIsPname] = useState(false);
   const [formData, setFormData] = useState({
     to_name: "",
     from_name: "",
     message: "",
   });
+
+  useEffect(() => {
+    if (location.pathname !== "/Home") {
+      setIsPname(true);
+    } else {
+      setIsPname(false);
+    }
+  }, [location]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,7 +35,7 @@ function Contact() {
 
     emailjs
       .send(
-        "service_uws9br8", 
+        "service_uws9br8",
         "template_ardpawd",
         {
           to_name: formData.to_name,
@@ -38,20 +46,21 @@ function Contact() {
       )
       .then((response) => {
         alert("Message sent successfully!");
-        setFormData({ name: "", from_name: "", message: "" });
+        setFormData({ to_name: "", from_name: "", message: "" });
       })
       .catch((error) => {
         alert("An error occurred. Please try again.");
         console.error("EmailJS Error:", error);
       });
   };
+
   return (
     <>
-      <Navbar />
-      <div className="w-full bg-gray-50  xl:h-25 h-26">
+      {/* {isPname && <Navbar />} */}
+      {/* <Navbar /> */}
+      <div className="w-full bg-gray-50 xl:h-25 h-26 pl-10" id="Contact">
         <div className="w-full h-full flex max-sm:flex-col">
           <div className="lg:w-5/12 lg:h-full h-52 flex-col flex justify-center lg:pl-2">
-            {/* <div className='flex justify-center lg:text-4xl lg:p-5 text-2xl text-black font-bold'>How can you communicate ?</div> */}
             <div className="text-3xl pl-3 pt-3 lg:text-7xl text-purple-700 font-extrabold">
               Let's make something
             </div>
@@ -95,7 +104,7 @@ function Contact() {
           </div>
           <div className="lg:w-7/12 lg:h-full h-98 flex justify-center items-center">
             <div className="w-full max-w-lg mx-auto p-2 rounded-lg shadow-lg">
-              <h2 className="text-2xl font-extrabold  text-center text-purple-600">
+              <h2 className="text-2xl font-extrabold text-center text-purple-600">
                 Contact Me
               </h2>
               <form onSubmit={handleSubmit} className="space-y-4">
@@ -104,7 +113,7 @@ function Contact() {
                   <input
                     type="text"
                     name="to_name"
-                    value={formData.name}
+                    value={formData.to_name}
                     onChange={handleChange}
                     className="w-full px-4 py-1 lg:py-3 border rounded-md"
                     required
